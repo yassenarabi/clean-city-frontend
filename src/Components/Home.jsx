@@ -6,423 +6,249 @@ import zamalek from "../assets/zmlk.jpg";
 import img3 from "../assets/haram.jpg";
 import img5 from "../assets/last.jpg";
 import img4 from "../assets/alex.jpg";
-import ahmed from "../assets/people.jpg"
-import sarah from "../assets/female.jpg"
-import omar from "../assets/single.jpg"
+import ahmed from "../assets/people.jpg";
+import sarah from "../assets/female.jpg";
+import omar from "../assets/single.jpg";
 
 export default function Home() {
   return (
     <>
-      <div className=" mx-auto overflow-hidden">
-        <div className=" w-screen h-screen overflow-hidden relative before:block before:absolute before:bg-emerald-800 before:h-full before:w-full before:top-0 before:left-0 before:z-10 before:opacity-40">
-          <img
-            src={img1}
-            className="absolute top-0 left-0 min-h-full w-full bg-cover bg-no-repeat  bg-scroll"
-          />
-          <div className="relative z-20 max-w-screen-lg mx-auto  flex flex-col py-5 px-8 justify-center gap-2 h-full items-center">
-            <div className="col-span-3">
-              <span className="uppercase text-lime-100 text-2xl font-bold mb-2 block">
+      <div className="overflow-hidden">
+
+        {/* Hero Section */}
+        <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
+          <div style={{
+            position: "absolute", top: 0, left: 0,
+            width: "100%", height: "100%",
+            backgroundColor: "rgba(6, 78, 59, 0.4)", zIndex: 1
+          }}></div>
+          <img src={img1} style={{
+            position: "absolute", top: 0, left: 0,
+            width: "100%", height: "100%", objectFit: "cover"
+          }} />
+          <div style={{ position: "relative", zIndex: 2, height: "100%" }}
+            className="d-flex align-items-center justify-content-center">
+            <div className="text-center px-4" style={{ maxWidth: "800px" }}>
+              <span className="text-uppercase fw-bold d-block mb-2"
+                style={{ color: "#f7fee7", fontSize: "1.2rem" }}>
                 YOUR CITY, YOUR RESPONSIBILITY
               </span>
-              <h1 className="text-lime-100 font-extrabold text-4xl mb-8">
-                CleanCity connects citizens to report pollution & keep cities
-                clean
+              <h1 className="fw-bolder mb-4" style={{ color: "#f7fee7", fontSize: "2.5rem" }}>
+                CleanCity connects citizens to report pollution & keep cities clean
               </h1>
-              <p className="text-lime-100 text-xl ">
+              <p className="mb-4" style={{ color: "#f7fee7", fontSize: "1.2rem" }}>
                 Join thousands of citizens who are actively reporting waste,
                 pollution, and environmental issues to help build a cleaner and
                 healthier city for everyone.
               </p>
-              <button className="mt-8 rounded-2xl text-emerald-900 font-bold uppercase py-4 bg-lime-100 text-xl duration-500 cursor-pointer transition-all  px-10 border border-lime-100 hover:text-lime-100 hover:bg-emerald-900 ">
+              <button className="btn fw-bold text-uppercase px-5 py-3"
+                style={{
+                  backgroundColor: "#f7fee7", color: "#14532d",
+                  borderRadius: "1rem", fontSize: "1.1rem",
+                  border: "2px solid #f7fee7", transition: "all 0.5s"
+                }}
+                onMouseOver={e => {
+                  e.target.style.backgroundColor = "#14532d";
+                  e.target.style.color = "#f7fee7";
+                }}
+                onMouseOut={e => {
+                  e.target.style.backgroundColor = "#f7fee7";
+                  e.target.style.color = "#14532d";
+                }}>
                 JOIN THE MOVEMENT 🌱
               </button>
             </div>
           </div>
         </div>
 
-        <div className="w-full  bg-lime-50">
-          <div className="w-[75%] mx-auto py-20 ">
-            <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-10 md:gap-20">
-              <div>
-                <span className="p-4 bg-emerald-200 rounded-4xl text-emerald-800 font-semibold">
-                  <i className="fa-solid fa-leaf"></i> CIVIC RESPONSIBILITY
-                  FIRST
+        {/* Together Section */}
+        <div style={{ backgroundColor: "#f7fee7" }}>
+          <div className="container py-5">
+            <div className="row align-items-center g-5">
+              <div className="col-12 col-md-6">
+                <span className="badge px-3 py-2 mb-3"
+                  style={{ backgroundColor: "#a7f3d0", color: "#065f46", fontSize: "0.9rem" }}>
+                  <i className="fa-solid fa-leaf me-1"></i> CIVIC RESPONSIBILITY FIRST
                 </span>
-
-                <h2 className="text-3xl md:text-5xl font-bold my-3 text-emerald-800 py-3">
-                  Together for a{" "}
-                  <span className="text-emerald-700">Cleaner City</span>
+                <h2 className="fw-bold my-3" style={{ color: "#065f46", fontSize: "2.5rem" }}>
+                  Together for a <span style={{ color: "#047857" }}>Cleaner City</span>
                 </h2>
-
-                <p className="text-emerald-800 capitalize py-3">
-                  Empower your neighborhood. Join thousands of citizens
-                  reporting waste and tracking environmental improvements across
-                  Egypt using AI-driven municipal management.
+                <p style={{ color: "#065f46" }} className="py-2">
+                  Empower your neighborhood. Join thousands of citizens reporting waste
+                  and tracking environmental improvements across Egypt using AI-driven
+                  municipal management.
                 </p>
-
-                <div className="flex flex-wrap gap-4">
+                <div className="d-flex flex-wrap gap-3 mt-2">
                   <Link to="/Reports">
-                    <button className="p-4 md:p-5 cursor-pointer transition-all font-semibold duration-1000 bg-emerald-800 hover:bg-lime-100 hover:text-emerald-800 text-lime-50 rounded-3xl">
+                    <button className="btn px-4 py-3 fw-semibold"
+                      style={{ backgroundColor: "#065f46", color: "#f0fdf4", borderRadius: "1.5rem" }}>
                       Report Now
                     </button>
                   </Link>
                   <Link to="/map">
-                    <button className="p-4 md:p-5 cursor-pointer border border-emerald-800 text-emerald-800 rounded-3xl font-semibold">
+                    <button className="btn px-4 py-3 fw-semibold"
+                      style={{ border: "2px solid #065f46", color: "#065f46", borderRadius: "1.5rem" }}>
                       View Map
                     </button>
                   </Link>
                 </div>
               </div>
-
-              <div>
-                <img src={img2} className="rounded-3xl w-full shadow-2xl" />
+              <div className="col-12 col-md-6">
+                <img src={img2} className="img-fluid shadow"
+                  style={{ borderRadius: "1.5rem" }} />
               </div>
             </div>
           </div>
         </div>
-        <div className="py-8 w-[90%] md:w-[75%] mx-auto bg-gray-100 rounded-4xl px-6 md:px-10 my-8 ">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center items-center text-center">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 border-2 border-emerald-800 rounded-full flex justify-center items-center">
-                <i className="fa-solid fa-exclamation text-emerald-800"></i>
-              </div>
-              <p className="text-emerald-800 font-bold text-lg py-1">
-                12,450 +
-              </p>
-              <p className="text-emerald-700 font-semibold text-lg py-1">
-                Total Reports
-              </p>
-            </div>
 
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 border-2 border-emerald-800 rounded-full flex justify-center items-center">
-                <i className="fa-solid fa-circle-check  text-emerald-800"></i>
+        {/* Stats Section */}
+        <div className="container my-5">
+          <div className="row g-4 text-center py-4 px-3 rounded-4"
+            style={{ backgroundColor: "#f3f4f6" }}>
+            {[
+              { icon: "fa-exclamation", value: "12,450 +", label: "Total Reports" },
+              { icon: "fa-circle-check", value: "9,800 +", label: "Resolved" },
+              { icon: "fa-spinner", value: "1,200", label: "In Progress" },
+              { icon: "fa-city", value: "15", label: "Cities Covered" },
+            ].map((stat, i) => (
+              <div key={i} className="col-6 col-md-3 d-flex flex-column align-items-center">
+                <div className="rounded-circle d-flex justify-content-center align-items-center mb-2"
+                  style={{ width: 48, height: 48, border: "2px solid #065f46" }}>
+                  <i className={`fa-solid ${stat.icon}`} style={{ color: "#065f46" }}></i>
+                </div>
+                <p className="fw-bold mb-0" style={{ color: "#065f46", fontSize: "1.1rem" }}>{stat.value}</p>
+                <p className="fw-semibold" style={{ color: "#047857", fontSize: "1rem" }}>{stat.label}</p>
               </div>
-              <p className="text-emerald-800 font-bold text-lg py-1">9,800 +</p>
-              <p className="text-lg text-emerald-700 font-semibold py-1">
-                Resolved
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 border-2 border-emerald-800 rounded-full flex justify-center items-center">
-                <i className="fa-solid fa-spinner text-emerald-800"></i>
-              </div>
-              <p className="text-emerald-800 font-bold text-lg py-1">1,200</p>
-              <p className=" text-lg text-emerald-700  font-semibold py-1">
-                In Progress
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 border-2 border-emerald-800 rounded-full flex justify-center items-center">
-                <i className="fa-solid fa-city text-emerald-800"></i>
-              </div>
-              <p className=" text-emerald-800 font-bold text-lg py-1">15</p>
-              <p className="text-lg text-emerald-700 font-semibold py-1">
-                Cities Covered
-              </p>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* How CleanCity Works section */}
-
-        <div className="py-10 bg-lime-50">
-          <div className="py-16 w-[90%] md:w-[75%] mx-auto my-8 text-center ">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-3">
+        {/* How It Works Section */}
+        <div style={{ backgroundColor: "#f7fee7" }} className="py-5">
+          <div className="container text-center py-4">
+            <h2 className="fw-bold mb-2" style={{ color: "#065f46", fontSize: "2rem" }}>
               How CleanCity Works
             </h2>
-            <p className="text-emerald-700 mb-12 text-sm md:text-base">
-              Three simple steps to bridge the gap between citizens and
-              municipal service providers.
+            <p style={{ color: "#047857" }} className="mb-5">
+              Three simple steps to bridge the gap between citizens and municipal service providers.
             </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="flex flex-col items-center text-center px-4">
-                <div className="w-16 h-16 bg-emerald-300 rounded-full flex justify-center items-center mb-5">
-                  <i class="fa-regular fa-camera text-emerald-800 text-xl"></i>
-                </div>
-                <h3 className="text-lg font-bold text-emerald-800 mb-2">
-                  1. Report waste with photo
-                </h3>
-                <p className="text-emerald-700 text-sm">
-                  Capture a photo and drop a pin. Our system detects the waste
-                  type and severity automatically.
-                </p>
-              </div>
-
-              <div className="flex flex-col items-center text-center px-4">
-                <div className="w-16 h-16 bg-emerald-300 rounded-full flex justify-center items-center mb-5">
-                  <i className="fa-solid fa-robot text-emerald-800 text-xl"></i>
-                </div>
-                <h3 className="text-lg font-bold text-emerald-800 mb-2">
-                  2. AI assigns to company
-                </h3>
-                <p className="text-emerald-700 text-sm">
-                  Reports are instantly routed to the relevant municipal zone
-                  and waste management companies.
-                </p>
-              </div>
-
-              <div className="flex flex-col items-center text-center px-4">
-                <div className="w-16 h-16 bg-emerald-300 rounded-full flex justify-center items-center mb-5">
-                  <i className="fa-solid fa-star text-emerald-800 text-xl"></i>
-                </div>
-                <h3 className="text-lg font-bold text-emerald-800 mb-2">
-                  3. Community gets cleaner
-                </h3>
-                <p className="text-emerald-700 text-sm">
-                  Watch the progress in real-time and earn points for your
-                  contribution to environmental safety.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* live activty section */}
-
-        <div className="py-5 w-[75%] mx-auto">
-          <div className="w-[90%] md:w-[85%] mx-auto my-6">
-            <div className="flex justify-between items-start mb-2">
-              <div>
-                <h4 className="text-emerald-600 font-bold text-2xl md:text-3xl">
-                  Live Activity
-                </h4>
-              </div>
-            </div>
-            <div className="flex justify-between w-full">
-              <p className="text-gray-500 text-sm mt-1">
-                Real-time reports coming in from your fellow citizens.
-              </p>
-              <Link
-                to="/Reports"
-                className="text-emerald-700 font-semibold text-sm md:text-base hover:underline whitespace-nowrap"
-              >
-                View All Reports →
-              </Link>
-            </div>
-
-            {/* Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 py-3">
-              {/* Card 1 */}
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img
-                  src={zamalek}
-                  alt="report"
-                  className="w-full h-44 object-cover"
-                />
-                <div className="flex justify-between items-center px-3 pt-3">
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-500">
-                    PLASTIC
-                  </span>
-                  <span className="text-xs font-semibold text-red-400 flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-red-400 inline-block"></span>
-                    PENDING
-                  </span>
-                </div>
-                <div className="px-3 pb-4 pt-2">
-                  <h3 className="font-bold text-gray-800 text-base">
-                    Zamalek District
-                  </h3>
-                  <p className="text-gray-400 text-xs mt-1 flex items-center gap-1">
-                    <i className="fa-solid fa-location-dot"></i> Cairo, Egypt
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img
-                  src={img3}
-                  alt="report"
-                  className="w-full h-44 object-cover"
-                />
-                <div className="flex justify-between items-center px-3 pt-3">
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-600">
-                    ORGANIC
-                  </span>
-                  <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
-                    RESOLVED
-                  </span>
-                </div>
-                <div className="px-3 pb-4 pt-2">
-                  <h3 className="font-bold text-gray-800 text-base">
-                    Al Haram Street
-                  </h3>
-                  <p className="text-gray-400 text-xs mt-1 flex items-center gap-1">
-                    <i className="fa-solid fa-location-dot"></i> Giza, Egypt
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img
-                  src={img4}
-                  alt="report"
-                  className="w-full h-44 object-cover"
-                />
-                <div className="flex justify-between items-center px-3 pt-3">
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-500">
-                    PLASTIC
-                  </span>
-                  <span className="text-xs font-semibold text-red-400 flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-red-400 inline-block"></span>
-                    PENDING
-                  </span>
-                </div>
-                <div className="px-3 pb-4 pt-2">
-                  <h3 className="font-bold text-gray-800 text-base">
-                    Corniche Road
-                  </h3>
-                  <p className="text-gray-400 text-xs mt-1 flex items-center gap-1">
-                    <i className="fa-solid fa-location-dot"></i> Alexandria,
-                    Egypt
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 4 */}
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img
-                  src={img5}
-                  alt="report"
-                  className="w-full h-44 object-cover"
-                />
-                <div className="flex justify-between items-center px-3 pt-3">
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-600">
-                    ORGANIC
-                  </span>
-                  <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
-                    RESOLVED
-                  </span>
-                </div>
-                <div className="px-3 pb-4 pt-2">
-                  <h3 className="font-bold text-gray-800 text-base">
-                    Fifth Settlement
-                  </h3>
-                  <p className="text-gray-400 text-xs mt-1 flex items-center gap-1">
-                    <i className="fa-solid fa-location-dot"></i> Cairo, Egypt
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* last section */}
-
-       
-
-
-
-
-      <div className="w-full bg-lime-50">
-      <div className="py-5 w-[75%] mx-auto ">
-          <div>
-            <div className="w-[90%] md:w-[60%] lg:w-[45%] mx-auto my-10 bg-white rounded-3xl shadow-md p-6">
-              {/* Header */}
-              <div className="text-center mb-6">
-                <h4 className="text-emerald-600 font-bold text-2xl">
-                  Community Leaders
-                </h4>
-                <p className="text-gray-400 text-sm mt-1">
-                  The environmental heroes of the month.
-                </p>
-              </div>
-
-              {/* Leader 1 */}
-              <div className="flex items-center justify-between bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-3">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <img
-                      src={ahmed}
-                      alt="Ahmed"
-                      className="w-14 h-14 rounded-full object-cover"
-                    />
-                    <span className="absolute -top-1 -left-1 w-5 h-5 bg-emerald-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
-                      1
-                    </span>
+            <div className="row g-4">
+              {[
+                { icon: "fa-regular fa-camera", title: "1. Report waste with photo", desc: "Capture a photo and drop a pin. Our system detects the waste type and severity automatically." },
+                { icon: "fa-solid fa-robot", title: "2. AI assigns to company", desc: "Reports are instantly routed to the relevant municipal zone and waste management companies." },
+                { icon: "fa-solid fa-star", title: "3. Community gets cleaner", desc: "Watch the progress in real-time and earn points for your contribution to environmental safety." },
+              ].map((step, i) => (
+                <div key={i} className="col-12 col-md-4 d-flex flex-column align-items-center px-4">
+                  <div className="rounded-circle d-flex justify-content-center align-items-center mb-4"
+                    style={{ width: 64, height: 64, backgroundColor: "#6ee7b7" }}>
+                    <i className={`${step.icon} text-xl`} style={{ color: "#065f46", fontSize: "1.3rem" }}></i>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800">Ahmed Mahmoud</h3>
-                    <p className="text-gray-400 text-xs">
-                      Cairo District Leader
+                  <h3 className="fw-bold mb-2" style={{ color: "#065f46" }}>{step.title}</h3>
+                  <p style={{ color: "#047857", fontSize: "0.9rem" }}>{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Live Activity Section */}
+        <div className="container py-5">
+          <div className="d-flex justify-content-between align-items-center mb-1">
+            <h4 className="fw-bold" style={{ color: "#059669", fontSize: "1.8rem" }}>Live Activity</h4>
+          </div>
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <p className="text-muted small mb-0">Real-time reports coming in from your fellow citizens.</p>
+            <Link to="/Reports" className="fw-semibold text-decoration-none"
+              style={{ color: "#047857" }}>View All Reports →</Link>
+          </div>
+
+          <div className="row g-4">
+            {[
+              { img: zamalek, badge: "PLASTIC", badgeBg: "#fee2e2", badgeColor: "#ef4444", status: "PENDING", statusColor: "#f87171", loc: "Zamalek District", city: "Cairo, Egypt" },
+              { img: img3, badge: "ORGANIC", badgeBg: "#d1fae5", badgeColor: "#059669", status: "RESOLVED", statusColor: "#34d399", loc: "Al Haram Street", city: "Giza, Egypt" },
+              { img: img4, badge: "PLASTIC", badgeBg: "#fee2e2", badgeColor: "#ef4444", status: "PENDING", statusColor: "#f87171", loc: "Corniche Road", city: "Alexandria, Egypt" },
+              { img: img5, badge: "ORGANIC", badgeBg: "#d1fae5", badgeColor: "#059669", status: "RESOLVED", statusColor: "#34d399", loc: "Fifth Settlement", city: "Cairo, Egypt" },
+            ].map((card, i) => (
+              <div key={i} className="col-12 col-sm-6 col-md-3">
+                <div className="card border-0 shadow-sm h-100" style={{ borderRadius: "1rem", overflow: "hidden" }}>
+                  <img src={card.img} className="card-img-top"
+                    style={{ height: "176px", objectFit: "cover" }} />
+                  <div className="card-body pt-2">
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <span className="badge fw-bold px-3 py-1"
+                        style={{ backgroundColor: card.badgeBg, color: card.badgeColor, borderRadius: "999px" }}>
+                        {card.badge}
+                      </span>
+                      <span className="small fw-semibold d-flex align-items-center gap-1"
+                        style={{ color: card.statusColor }}>
+                        <span className="rounded-circle d-inline-block"
+                          style={{ width: 8, height: 8, backgroundColor: card.statusColor }}></span>
+                        {card.status}
+                      </span>
+                    </div>
+                    <h6 className="fw-bold text-dark mb-1">{card.loc}</h6>
+                    <p className="text-muted small mb-0">
+                      <i className="fa-solid fa-location-dot me-1"></i>{card.city}
                     </p>
                   </div>
                 </div>
-                <div className="text-right">
-                  <p className="font-bold text-gray-800 text-lg">2,850</p>
-                  <p className="text-gray-400 text-xs">POINTS</p>
-                </div>
               </div>
+            ))}
+          </div>
+        </div>
 
-              {/* Leader 2 */}
-              <div className="flex items-center justify-between bg-gray-100 rounded-2xl p-4 mb-3">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <img
-                      src={sarah}
-                      alt="Sarah"
-                      className="w-14 h-14 rounded-full object-cover"
-                    />
-                    <span className="absolute -top-1 -left-1 w-5 h-5 bg-gray-400 text-white text-xs rounded-full flex items-center justify-center font-bold">
-                      2
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800">Sarah Kamel</h3>
-                    <p className="text-gray-400 text-xs">
-                      Alexandria Contributor
-                    </p>
-                  </div>
+        {/* Community Leaders Section */}
+        <div style={{ backgroundColor: "#f7fee7" }}>
+          <div className="container py-5">
+            <div className="col-12 col-md-8 col-lg-5 mx-auto">
+              <div className="card border-0 shadow p-4" style={{ borderRadius: "1.5rem" }}>
+                <div className="text-center mb-4">
+                  <h4 className="fw-bold" style={{ color: "#059669" }}>Community Leaders</h4>
+                  <p className="text-muted small mt-1">The environmental heroes of the month.</p>
                 </div>
-                <div className="text-right">
-                  <p className="font-bold text-gray-800 text-lg">2,420</p>
-                  <p className="text-gray-400 text-xs">POINTS</p>
-                </div>
-              </div>
 
-              {/* Leader 3 */}
-              <div className="flex items-center justify-between bg-gray-100 rounded-2xl p-4 mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <img
-                      src={omar}
-                      alt="Omar"
-                      className="w-14 h-14 rounded-full object-cover"
-                    />
-                    <span className="absolute -top-1 -left-1 w-5 h-5 bg-gray-400 text-white text-xs rounded-full flex items-center justify-center font-bold">
-                      3
-                    </span>
+                {[
+                  { img: ahmed, name: "Ahmed Mahmoud", role: "Cairo District Leader", points: "2,850", rank: 1, bg: "#ecfdf5", border: "#6ee7b7", rankBg: "#10b981" },
+                  { img: sarah, name: "Sarah Kamel", role: "Alexandria Contributor", points: "2,420", rank: 2, bg: "#f3f4f6", border: "transparent", rankBg: "#9ca3af" },
+                  { img: omar, name: "Omar Hassan", role: "Giza Active Member", points: "1,980", rank: 3, bg: "#f3f4f6", border: "transparent", rankBg: "#9ca3af" },
+                ].map((leader, i) => (
+                  <div key={i} className="d-flex justify-content-between align-items-center p-3 mb-3 rounded-4"
+                    style={{ backgroundColor: leader.bg, border: `1px solid ${leader.border}` }}>
+                    <div className="d-flex align-items-center gap-3">
+                      <div style={{ position: "relative" }}>
+                        <img src={leader.img} alt={leader.name}
+                          className="rounded-circle object-fit-cover"
+                          style={{ width: 56, height: 56 }} />
+                        <span className="position-absolute d-flex align-items-center justify-content-center fw-bold text-white"
+                          style={{
+                            top: -4, left: -4, width: 20, height: 20,
+                            backgroundColor: leader.rankBg, borderRadius: "50%", fontSize: "0.7rem"
+                          }}>
+                          {leader.rank}
+                        </span>
+                      </div>
+                      <div>
+                        <h6 className="fw-bold text-dark mb-0">{leader.name}</h6>
+                        <p className="text-muted small mb-0">{leader.role}</p>
+                      </div>
+                    </div>
+                    <div className="text-end">
+                      <p className="fw-bold text-dark mb-0">{leader.points}</p>
+                      <p className="text-muted small mb-0">POINTS</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800">Omar Hassan</h3>
-                    <p className="text-gray-400 text-xs">Giza Active Member</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="font-bold text-gray-800 text-lg">1,980</p>
-                  <p className="text-gray-400 text-xs">POINTS</p>
-                </div>
-              </div>
+                ))}
 
-              {/* Button */}
-              <div className="text-center">
-                <button className="bg-gray-700 hover:bg-gray-800 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300">
-                  Join the Leaderboard
-                </button>
+                <div className="text-center mt-2">
+                  <button className="btn fw-semibold px-5 py-2 text-white rounded-pill"
+                    style={{ backgroundColor: "#374151" }}>
+                    Join the Leaderboard
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-
 
       </div>
     </>

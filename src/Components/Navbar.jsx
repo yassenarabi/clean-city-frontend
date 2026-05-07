@@ -6,113 +6,105 @@ export default function Navbar() {
 
   const linkClass = ({ isActive }) =>
     isActive
-      ? "relative text-green-600 after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-green-600"
-      : "text-gray-600 hover:text-black text-decoration-none ";
+      ? "nav-link fw-semibold text-decoration-none"
+      : "nav-link text-secondary fw-semibold text-decoration-none";
+
+  const activeStyle = { color: "#16a34a", borderBottom: "2px solid #16a34a" };
 
   return (
-    <>
-      <nav className="p-4 bg-emerald-100 shadow-xl z-50 ">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <NavLink to="/" className="text-decoration-none">
-              <h1 className="font-extrabold text-xl  text-green-800">
-                CleanCity
-              </h1>
+    <nav className="px-3 py-2 shadow" style={{ backgroundColor: "#ecfdf5", zIndex: 50 }}>
+      <div className="container-xl">
+        <div className="d-flex align-items-center justify-content-between" style={{ height: "64px" }}>
+
+          {/* Logo */}
+          <NavLink to="/" className="text-decoration-none">
+            <h1 className="fw-bolder mb-0" style={{ color: "#166534", fontSize: "1.3rem" }}>
+              CleanCity
+            </h1>
+          </NavLink>
+
+          {/* Desktop Links */}
+          <div className="d-none d-lg-flex gap-4 fs-6 fw-semibold">
+            <NavLink to="/" className={linkClass}
+              style={({ isActive }) => isActive ? activeStyle : {}}>
+              Home
             </NavLink>
+            <NavLink to="/map" className={linkClass}
+              style={({ isActive }) => isActive ? activeStyle : {}}>
+              Map
+            </NavLink>
+            <NavLink to="/reports" className={linkClass}
+              style={({ isActive }) => isActive ? activeStyle : {}}>
+              Reports
+            </NavLink>
+            <NavLink to="/companies" className={linkClass}
+              style={({ isActive }) => isActive ? activeStyle : {}}>
+              Companies
+            </NavLink>
+          </div>
 
-            {/* Desktop Links */}
-            <div className="flex-1 flex justify-center">
-              <div className="hidden  lg:flex space-x-6 text-lg font-semibold sm:hidden">
-                <NavLink to="/" className={linkClass  } >
-                  Home
-                </NavLink>
-                <NavLink to="/map" className={linkClass}>
-                  Map
-                </NavLink>
-                <NavLink to="/reports" className={linkClass}>
-                  Reports
-                </NavLink>
-                <NavLink to="/companies" className={linkClass}>
-                  Companies
-                </NavLink>
-              </div>
-            </div>
+          {/* Right Side */}
+          <div className="d-flex align-items-center gap-3">
+            <i className="fa-solid fa-globe fs-5" style={{ color: "#22c55e", cursor: "pointer" }}></i>
 
-            {/* Right Side */}
-            <div className="flex items-center gap-4 ">
-              <i className="text-xl text-green-500 fa-solid  fa-globe cursor-pointer"></i>
+            {/* Desktop Buttons */}
+            <button className="btn text-white d-none d-lg-block px-4 py-2"
+              style={{ backgroundColor: "#22c55e", borderRadius: "0.5rem" }}>
+              Login
+            </button>
+            <button className="btn text-white d-none d-lg-block px-4 py-2"
+              style={{ backgroundColor: "#22c55e", borderRadius: "0.5rem" }}>
+              Register
+            </button>
 
-              {/* Desktop Buttons */}
-              <button className="hidden sm:hidden lg:flex  rounded-lg bg-green-500 py-2 px-4 text-white shadow-md hover:shadow-lg hover:shadow-green-500/40">
+            {/* Hamburger */}
+            <button
+              className="btn text-white d-lg-none px-3 py-1 fs-5"
+              style={{ backgroundColor: "#16a34a", borderRadius: "0.5rem" }}
+              onClick={() => setOpen(!open)}
+            >
+              {open ? "✕" : "☰"}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {open && (
+          <div className="d-flex flex-column gap-3 pb-3 pt-2 border-top"
+            style={{ borderColor: "#bbf7d0" }}>
+            {[
+              { to: "/", label: "Home" },
+              { to: "/map", label: "Map" },
+              { to: "/reports", label: "Reports" },
+              { to: "/companies", label: "Companies" },
+            ].map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                onClick={() => setOpen(false)}
+                className="text-decoration-none fw-semibold"
+                style={({ isActive }) => ({
+                  color: isActive ? "#16a34a" : "#374151",
+                  fontWeight: isActive ? "bold" : "normal",
+                })}
+              >
+                {label}
+              </NavLink>
+            ))}
+
+            <div className="d-flex gap-3 pt-2">
+              <button className="btn text-white flex-fill py-2"
+                style={{ backgroundColor: "#22c55e", borderRadius: "0.5rem" }}>
                 Login
               </button>
-              <button className="hidden sm:hidden lg:flex rounded-lg bg-green-500 py-2 px-4 text-white shadow-md hover:shadow-lg hover:shadow-green-500/40">
+              <button className="btn text-white flex-fill py-2"
+                style={{ backgroundColor: "#22c55e", borderRadius: "0.5rem" }}>
                 Register
-              </button>
-
-              {/* Hamburger Button */}
-              <button
-                onClick={() => setOpen(!open)}
-                className="lg:hidden bg-green-600 text-white p-2 rounded text-2xl leading-none"
-              >
-                {open ? "✕" : "☰"}
               </button>
             </div>
           </div>
-
-          {/* Mobile Menu */}
-          {open && (
-            <div className="flex flex-col gap-3 pb-4 pt-2 border-t border-green-200">
-              <NavLink
-                to="/"
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  isActive ? "text-green-600 font-bold" : "text-gray-700"
-                }
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/map"
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  isActive ? "text-green-600 font-bold" : "text-gray-700"
-                }
-              >
-                Map
-              </NavLink>
-              <NavLink
-                to="/reports"
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  isActive ? "text-green-600 font-bold" : "text-gray-700"
-                }
-              >
-                Reports
-              </NavLink>
-              <NavLink
-                to="/companies"
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  isActive ? "text-green-600 font-bold" : "text-gray-700" 
-                }
-              >
-                Companies
-              </NavLink>
-
-              <div className="flex gap-3 pt-2">
-                <button className="flex-1 rounded-lg bg-green-500 py-2 px-4 text-white shadow-md">
-                  Login
-                </button>
-                <button className="flex-1 rounded-lg bg-green-500 py-2 px-4 text-white shadow-md">
-                  Register
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
-    </>
+        )}
+      </div>
+    </nav>
   );
 }
